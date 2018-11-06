@@ -67,4 +67,30 @@ class TodoController extends Controller
     		'message' => 'success'
     	]);
     }
+
+
+    public function updateData(Request $request) {
+    	$id = $request->id;
+    	$title = $request->title;
+		$description = $request->description;
+		$due_date = $request->due_date;
+		$repeat = $request->repeat;
+		$status = $request->status;
+		$category_id = $request->category_id;
+		$user_id = $request->user_id;
+
+		$todo = Todo::find($id);
+		$todo->title = $title;
+		$todo->description = $description;
+		$todo->due_date = $due_date;
+		$todo->repeat = $repeat;
+		$todo->status = $status;
+		$todo->category_id = $category_id;
+		$todo->user_id = $user_id;
+		$todo->save();
+
+    	return response()->json([
+    		'message' => 'success'
+    	]);
+    }
 }
