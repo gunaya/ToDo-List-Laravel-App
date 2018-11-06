@@ -26,3 +26,9 @@ Route::group([
         Route::get('user', 'AuthController@user');
     });
 });
+
+Route::post('todo/', 'TodoController@readData');
+Route::post('todo/create/', 'TodoController@createData');
+Route::post('todo/delete/', 'TodoController@deleteData');
+Route::post('todo/set/finish/', 'TodoController@setFinished');
+Route::post('todo/set/repeat/', 'TodoController@setRepeat');
