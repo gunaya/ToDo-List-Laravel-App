@@ -27,9 +27,7 @@ Route::group([
     });
 });
 
-Route::post('todo/', 'TodoController@readData');
-Route::post('todo/create/', 'TodoController@createData');
-Route::post('todo/delete/', 'TodoController@deleteData');
-Route::post('todo/update/', 'TodoController@updateData');
-Route::post('todo/set/finish/', 'TodoController@setFinished');
-Route::post('todo/set/repeat/', 'TodoController@setRepeat');
+Route::post('kantin/get/', 'KantinController@readData');
+Route::post('kantin/add/', 'KantinController@createData');
+Route::post('kantin/update/', 'KantinController@updateData');
+Route::post('kantin/delete/', 'KantinController@deleteData');
