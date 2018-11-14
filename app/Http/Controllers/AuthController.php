@@ -60,10 +60,20 @@ class AuthController extends Controller
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
         $token->save();
+
+        $email = $request->email;
+        $data = User::where('email', $email)->get();
+        foreach ($data as $key => $value) {
+            $name = $value->name;
+            $id = $value->id;
+        }
+
         return response()->json([
             // 'access_token' => $tokenResult->accessToken,
             // 'token_type' => 'Bearer'
-            'message' => 'success'
+            'message' => 'success',
+            'name' => $name,
+            'id' => $id
         ]);
     }
   
